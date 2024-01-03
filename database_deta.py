@@ -1,10 +1,8 @@
 from deta import Deta
 
-DETA_KEY = "hv4CPkKC_eEXFPQrzx2V1mdZDPBx2yLPHXRhEFi4c"
-
 # Init deta account
 
-deta = Deta(DETA_KEY)
+deta = ...#Deta(DETA_KEY)
 
 # Create/connect a database
 

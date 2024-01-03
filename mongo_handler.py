@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from dotenv import load_dotenv
 import streamlit as st
 
 
@@ -47,7 +46,6 @@ class MongoDBHandler:
     
 
 def get_uri():
-        load_dotenv()
         MONGO_PWD = st.secrets.MONGO_PWD
         if not MONGO_PWD:
             raise ValueError("MONGODB_URI environment variable not set.")

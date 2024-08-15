@@ -78,7 +78,6 @@ class MongoDBHandler:
 
             # Loop through the cursor and populate the dictionary with unique keys
             for idx, doc in enumerate(cursor):
-                print(doc)
                 # Extracting the fields from the document
                 country = doc.get('country', '')
                 city = doc.get('city', '')

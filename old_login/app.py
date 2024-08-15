@@ -1,5 +1,5 @@
 from mongo_handler import MongoDBHandler
-from landing_page import open_landing_page
+from old_login.landing_page import open_landing_page
 import streamlit_authenticator as stauth
 import streamlit as st
 

@@ -6,10 +6,14 @@ class MongoDBHandler:
     def __init__(self):
     
         uri = get_uri()
-        self.client = MongoClient(uri)
+        self.client = MongoClient(uri, serverSelectionTimeoutMS=5000)
         self.db = self.client.fet_database
         self.coll = self.db.expenses
         # self.coll = self.db.fet_users
+        if self.client.server_info():
+            print("Connected to MongoDB successfully.")
+        else:
+            print("Failed to connect to MongoDB")
 
 
     def close_connection(self):
@@ -74,7 +78,7 @@ class MongoDBHandler:
 
             # Loop through the cursor and populate the dictionary with unique keys
             for idx, doc in enumerate(cursor):
-
+                print(doc)
                 # Extracting the fields from the document
                 country = doc.get('country', '')
                 city = doc.get('city', '')
@@ -130,8 +134,8 @@ class MongoDBHandler:
     
 
 def get_uri():
-        MONGO_PWD = st.secrets.MONGO_PWD
+        #MONGO_PWD = st.secrets.MONGO_PWD
         #MONGO_PWD = ""
         if not MONGO_PWD:
             raise ValueError("MONGODB_URI environment variable not set.")
-        return f"mongodb+srv://amarpredicts_mongodb:{MONGO_PWD}@amarscluster.fyegt0f.mongodb.net/?retryWrites=true&w=majority"
+        return f"mongodb+srv://amar_user_new:{MONGO_PWD}@amarscluster.fyegt0f.mongodb.net/?retryWrites=true&w=majority&appName=AmarsCluster"

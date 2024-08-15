@@ -134,7 +134,7 @@ class MongoDBHandler:
     
 
 def get_uri():
-        #MONGO_PWD = st.secrets.MONGO_PWD
+        MONGO_PWD = st.secrets.MONGO_PWD
         #MONGO_PWD = ""
         if not MONGO_PWD:
             raise ValueError("MONGODB_URI environment variable not set.")
